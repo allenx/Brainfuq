@@ -89,12 +89,9 @@ public class BrainfuqParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_top; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterTop(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitTop(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BrainfuqVisitor ) return ((BrainfuqVisitor<? extends T>)visitor).visitTop(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -137,12 +134,9 @@ public class BrainfuqParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_prog; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterProg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitProg(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BrainfuqVisitor ) return ((BrainfuqVisitor<? extends T>)visitor).visitProg(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -195,6 +189,7 @@ public class BrainfuqParser extends Parser {
 	}
 
 	public static class OpsContext extends ParserRuleContext {
+		public Token op;
 		public TerminalNode INPUT() { return getToken(BrainfuqParser.INPUT, 0); }
 		public TerminalNode OUTPUT() { return getToken(BrainfuqParser.OUTPUT, 0); }
 		public TerminalNode INC() { return getToken(BrainfuqParser.INC, 0); }
@@ -208,12 +203,9 @@ public class BrainfuqParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_ops; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterOps(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitOps(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BrainfuqVisitor ) return ((BrainfuqVisitor<? extends T>)visitor).visitOps(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -225,9 +217,10 @@ public class BrainfuqParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(17);
+			((OpsContext)_localctx).op = _input.LT(1);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INPUT) | (1L << OUTPUT) | (1L << INC) | (1L << DEC) | (1L << P_INC) | (1L << P_DEC) | (1L << LOOP_START) | (1L << LOOP_END))) != 0)) ) {
-			_errHandler.recoverInline(this);
+				((OpsContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 			}
 			else {
 				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
@@ -258,12 +251,9 @@ public class BrainfuqParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_loop; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterLoop(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitLoop(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BrainfuqVisitor ) return ((BrainfuqVisitor<? extends T>)visitor).visitLoop(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

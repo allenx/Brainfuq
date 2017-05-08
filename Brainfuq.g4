@@ -8,7 +8,7 @@ grammar Brainfuq;
 top : prog;
 prog : (loop | ops)*;
 
-ops : INPUT | OUTPUT | INC | DEC | P_INC | P_DEC | LOOP_START | LOOP_END;
+ops : op=( INPUT | OUTPUT | INC | DEC | P_INC | P_DEC | LOOP_START | LOOP_END);
 loop : LOOP_START prog LOOP_END;
 INPUT : ',';
 OUTPUT : '.';
