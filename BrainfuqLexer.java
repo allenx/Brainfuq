@@ -1,4 +1,4 @@
-// Generated from BrainFuck.g4 by ANTLR 4.7
+// Generated from Brainfuq.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class BrainFuckLexer extends Lexer {
+public class BrainfuqLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -72,13 +72,13 @@ public class BrainFuckLexer extends Lexer {
 	}
 
 
-	public BrainFuckLexer(CharStream input) {
+	public BrainfuqLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "BrainFuck.g4"; }
+	public String getGrammarFileName() { return "Brainfuq.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

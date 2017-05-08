@@ -1,63 +1,63 @@
-// Generated from BrainFuck.g4 by ANTLR 4.7
+// Generated from Brainfuq.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link BrainFuckListener},
+ * This class provides an empty implementation of {@link BrainfuqListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class BrainFuckBaseListener implements BrainFuckListener {
+public class BrainfuqBaseListener implements BrainfuqListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTop(BrainFuckParser.TopContext ctx) { }
+	@Override public void enterTop(BrainfuqParser.TopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTop(BrainFuckParser.TopContext ctx) { }
+	@Override public void exitTop(BrainfuqParser.TopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProg(BrainFuckParser.ProgContext ctx) { }
+	@Override public void enterProg(BrainfuqParser.ProgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProg(BrainFuckParser.ProgContext ctx) { }
+	@Override public void exitProg(BrainfuqParser.ProgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOps(BrainFuckParser.OpsContext ctx) { }
+	@Override public void enterOps(BrainfuqParser.OpsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOps(BrainFuckParser.OpsContext ctx) { }
+	@Override public void exitOps(BrainfuqParser.OpsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLoop(BrainFuckParser.LoopContext ctx) { }
+	@Override public void enterLoop(BrainfuqParser.LoopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLoop(BrainFuckParser.LoopContext ctx) { }
+	@Override public void exitLoop(BrainfuqParser.LoopContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

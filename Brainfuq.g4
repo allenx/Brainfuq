@@ -1,8 +1,9 @@
 /*
- * BrainFuck is an interesting language that consists of only 8 tokens and it's Turing Complete
+ * Brainfuq is an interpreter for Brainfuck
+ * Brainfuck is an interesting language that consists of only 8 tokens and it's Turing Complete
  */
 
-grammar BrainFuck;
+grammar Brainfuq;
 
 top : prog;
 prog : (loop | ops)*;

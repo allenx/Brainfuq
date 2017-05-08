@@ -1,4 +1,4 @@
-// Generated from BrainFuck.g4 by ANTLR 4.7
+// Generated from Brainfuq.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class BrainFuckParser extends Parser {
+public class BrainfuqParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -65,7 +65,7 @@ public class BrainFuckParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "BrainFuck.g4"; }
+	public String getGrammarFileName() { return "Brainfuq.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -76,7 +76,7 @@ public class BrainFuckParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public BrainFuckParser(TokenStream input) {
+	public BrainfuqParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -90,11 +90,11 @@ public class BrainFuckParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_top; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).enterTop(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterTop(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).exitTop(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitTop(this);
 		}
 	}
 
@@ -138,11 +138,11 @@ public class BrainFuckParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_prog; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).enterProg(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterProg(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).exitProg(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitProg(this);
 		}
 	}
 
@@ -195,25 +195,25 @@ public class BrainFuckParser extends Parser {
 	}
 
 	public static class OpsContext extends ParserRuleContext {
-		public TerminalNode INPUT() { return getToken(BrainFuckParser.INPUT, 0); }
-		public TerminalNode OUTPUT() { return getToken(BrainFuckParser.OUTPUT, 0); }
-		public TerminalNode INC() { return getToken(BrainFuckParser.INC, 0); }
-		public TerminalNode DEC() { return getToken(BrainFuckParser.DEC, 0); }
-		public TerminalNode P_INC() { return getToken(BrainFuckParser.P_INC, 0); }
-		public TerminalNode P_DEC() { return getToken(BrainFuckParser.P_DEC, 0); }
-		public TerminalNode LOOP_START() { return getToken(BrainFuckParser.LOOP_START, 0); }
-		public TerminalNode LOOP_END() { return getToken(BrainFuckParser.LOOP_END, 0); }
+		public TerminalNode INPUT() { return getToken(BrainfuqParser.INPUT, 0); }
+		public TerminalNode OUTPUT() { return getToken(BrainfuqParser.OUTPUT, 0); }
+		public TerminalNode INC() { return getToken(BrainfuqParser.INC, 0); }
+		public TerminalNode DEC() { return getToken(BrainfuqParser.DEC, 0); }
+		public TerminalNode P_INC() { return getToken(BrainfuqParser.P_INC, 0); }
+		public TerminalNode P_DEC() { return getToken(BrainfuqParser.P_DEC, 0); }
+		public TerminalNode LOOP_START() { return getToken(BrainfuqParser.LOOP_START, 0); }
+		public TerminalNode LOOP_END() { return getToken(BrainfuqParser.LOOP_END, 0); }
 		public OpsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ops; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).enterOps(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterOps(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).exitOps(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitOps(this);
 		}
 	}
 
@@ -248,22 +248,22 @@ public class BrainFuckParser extends Parser {
 	}
 
 	public static class LoopContext extends ParserRuleContext {
-		public TerminalNode LOOP_START() { return getToken(BrainFuckParser.LOOP_START, 0); }
+		public TerminalNode LOOP_START() { return getToken(BrainfuqParser.LOOP_START, 0); }
 		public ProgContext prog() {
 			return getRuleContext(ProgContext.class,0);
 		}
-		public TerminalNode LOOP_END() { return getToken(BrainFuckParser.LOOP_END, 0); }
+		public TerminalNode LOOP_END() { return getToken(BrainfuqParser.LOOP_END, 0); }
 		public LoopContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loop; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).enterLoop(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).enterLoop(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainFuckListener ) ((BrainFuckListener)listener).exitLoop(this);
+			if ( listener instanceof BrainfuqListener ) ((BrainfuqListener)listener).exitLoop(this);
 		}
 	}
 
