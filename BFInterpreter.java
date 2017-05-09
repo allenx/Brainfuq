@@ -103,6 +103,7 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
 
                 bfInt.dataPointer = 0;
                 bfInt.tape = null;
+                bfInt.tape = new byte[bfInt.LENGTH];
 
             }
                 
