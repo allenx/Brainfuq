@@ -143,37 +143,42 @@ public class BrainfuqParser extends Parser {
 	public final ProgContext prog() throws RecognitionException {
 		ProgContext _localctx = new ProgContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_prog);
+		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(14);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
+			_la = _input.LA(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INPUT) | (1L << OUTPUT) | (1L << INC) | (1L << DEC) | (1L << P_INC) | (1L << P_DEC) | (1L << LOOP_START))) != 0)) {
+				{
+				setState(12);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case LOOP_START:
 					{
-					setState(12);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
-					case 1:
-						{
-						setState(10);
-						loop();
-						}
-						break;
-					case 2:
-						{
-						setState(11);
-						ops();
-						}
-						break;
+					setState(10);
+					loop();
 					}
-					} 
+					break;
+				case INPUT:
+				case OUTPUT:
+				case INC:
+				case DEC:
+				case P_INC:
+				case P_DEC:
+					{
+					setState(11);
+					ops();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
 				}
 				setState(16);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
+				_la = _input.LA(1);
 			}
 			}
 		}
@@ -196,8 +201,6 @@ public class BrainfuqParser extends Parser {
 		public TerminalNode DEC() { return getToken(BrainfuqParser.DEC, 0); }
 		public TerminalNode P_INC() { return getToken(BrainfuqParser.P_INC, 0); }
 		public TerminalNode P_DEC() { return getToken(BrainfuqParser.P_DEC, 0); }
-		public TerminalNode LOOP_START() { return getToken(BrainfuqParser.LOOP_START, 0); }
-		public TerminalNode LOOP_END() { return getToken(BrainfuqParser.LOOP_END, 0); }
 		public OpsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -219,7 +222,7 @@ public class BrainfuqParser extends Parser {
 			setState(17);
 			((OpsContext)_localctx).op = _input.LT(1);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INPUT) | (1L << OUTPUT) | (1L << INC) | (1L << DEC) | (1L << P_INC) | (1L << P_DEC) | (1L << LOOP_START) | (1L << LOOP_END))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INPUT) | (1L << OUTPUT) | (1L << INC) | (1L << DEC) | (1L << P_INC) | (1L << P_DEC))) != 0)) ) {
 				((OpsContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 			}
 			else {
@@ -285,7 +288,7 @@ public class BrainfuqParser extends Parser {
 	public static final String _serializedATN =
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13\32\4\2\t\2\4\3"+
 		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\3\3\3\7\3\17\n\3\f\3\16\3\22\13\3\3\4\3"+
-		"\4\3\5\3\5\3\5\3\5\3\5\2\2\6\2\4\6\b\2\3\3\2\3\n\2\27\2\n\3\2\2\2\4\20"+
+		"\4\3\5\3\5\3\5\3\5\3\5\2\2\6\2\4\6\b\2\3\3\2\3\b\2\27\2\n\3\2\2\2\4\20"+
 		"\3\2\2\2\6\23\3\2\2\2\b\25\3\2\2\2\n\13\5\4\3\2\13\3\3\2\2\2\f\17\5\b"+
 		"\5\2\r\17\5\6\4\2\16\f\3\2\2\2\16\r\3\2\2\2\17\22\3\2\2\2\20\16\3\2\2"+
 		"\2\20\21\3\2\2\2\21\5\3\2\2\2\22\20\3\2\2\2\23\24\t\2\2\2\24\7\3\2\2\2"+
