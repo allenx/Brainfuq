@@ -14,7 +14,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 
 public class BFInterpreter extends BrainfuqBaseVisitor {
 
-    private static Logger logger = Logger.getLogger(BFInterpreter.class.getName());
+    //private static Logger logger = Logger.getLogger(BFInterpreter.class.getName());
 
     private int LENGTH = 65443;
     byte[] tape = new byte[LENGTH];
@@ -87,12 +87,22 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
         BFInterpreter bfInt = new BFInterpreter();
 
         if (args[0].equals("-i")) {
+
+            //Stack<String> commandStack = new Stack<String>();
+    
             Scanner commands = new Scanner(System.in);
             System.out.print("Welcome to Brainfuck Interactive REPL :)\n");
+
 
             while (true) {
                 System.out.print("BF >> ");
                 String command = commands.next();
+                
+                //TODO: Implement a Command Stack and detect arrow keys to select through previous commands
+                //if (command.equals("^[[A")) {
+                    //System.out.print("foooo");
+                //}
+                //commandStack.push(command);
                 System.out.print("\n    ");
                 final ANTLRInputStream input = new ANTLRInputStream(command);
                 BrainfuqLexer lexer = new BrainfuqLexer(input);
