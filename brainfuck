@@ -1,0 +1,2 @@
+#!/bin/zsh
+java BFInterpreter $1

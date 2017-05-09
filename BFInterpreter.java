@@ -91,8 +91,8 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
             //Stack<String> commandStack = new Stack<String>();
     
             Scanner commands = new Scanner(System.in);
-            System.out.print("Welcome to Brainfuck Interactive REPL :)\n");
-
+            System.out.print("\n    Welcome to Brainfuck REPL(an interactive programming environment) :)\n");
+            System.out.print("    Brainfuck is trivial yet very difficult to write.\n    If you want to get a hint of the grammar, just type in :help\n\n");   
 
             while (true) {
                 System.out.print("BF >> ");
@@ -103,17 +103,35 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                     //System.out.print("foooo");
                 //}
                 //commandStack.push(command);
+                
                 System.out.print("\n    ");
-                final ANTLRInputStream input = new ANTLRInputStream(command);
-                BrainfuqLexer lexer = new BrainfuqLexer(input);
-                CommonTokenStream tokens = new CommonTokenStream(lexer);
-                BrainfuqParser parser = new BrainfuqParser(tokens);
-                bfInt.visit(parser.top());
-                System.out.print("\n\n");
 
-                bfInt.dataPointer = 0;
-                bfInt.tape = null;
-                bfInt.tape = new byte[bfInt.LENGTH];
+                if (command.equals(":help") || command.equals(":h")) {
+                    System.out.print("> : Move data pointer one cell to the right\n" +
+                                     "    < : Move data pointer one cell to the left\n" +
+                                     "    + : Increment the value at the data pointer\n" +
+                                     "    - : Decrement the value at the data pointer\n" +
+                                     "    . : Print out the value at the data pointer (as ASCII)\n" +
+                                     "    , : Accept a byte of input and store it as the value at the pointer\n" +
+                                     "    [ : Jump to the matching ] unless the value at the pointer is 0\n" +
+                                     "    ] : Jump backwards to the matching [ unless the value at the data pointer is not 0\n\n");
+                } else if (command.equals(":quit") || command.equals(":q")) {
+                    System.out.print("It's been fun playing with you! See you next time!\n\n");
+                    return;
+                } else {
+
+                    final ANTLRInputStream input = new ANTLRInputStream(command);
+                    BrainfuqLexer lexer = new BrainfuqLexer(input);
+                    CommonTokenStream tokens = new CommonTokenStream(lexer);
+                    BrainfuqParser parser = new BrainfuqParser(tokens);
+                    bfInt.visit(parser.top());
+                    System.out.print("\n\n");
+
+                    //Resetting the state for the next repl
+                    bfInt.dataPointer = 0;
+                    bfInt.tape = null;
+                    bfInt.tape = new byte[bfInt.LENGTH];
+                }
 
             }
                 
