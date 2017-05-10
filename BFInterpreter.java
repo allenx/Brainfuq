@@ -6,11 +6,13 @@ import java.util.logging.Logger;
 
 import java.io.*;
 import java.util.*;
+import java.nio.charset.Charset;
 
 import org.antlr.runtime.TokenStream;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
+import org.apache.commons.io.IOUtils;
 
 public class BFInterpreter extends BrainfuqBaseVisitor {
 
@@ -82,6 +84,8 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
 
     }
 
+    
+
 
     public static void main(String[] args) throws IOException {
         BFInterpreter bfInt = new BFInterpreter();
@@ -95,7 +99,7 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
             System.out.print("    Brainfuck is trivial yet very difficult to write.\n    If you want to get a hint of the grammar, just type in :help\n\n");   
 
             while (true) {
-                System.out.print("BF >> ");
+                System.out.print("BF ⚡️  ");
                 String command = commands.next();
                 
                 //TODO: Implement a Command Stack and detect arrow keys to select through previous commands
@@ -120,7 +124,16 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                     return;
                 } else {
 
-                    final ANTLRInputStream input = new ANTLRInputStream(command);
+                    command = command.replaceAll("🌝", ",");
+                    command = command.replaceAll("🌚", ".");
+                    command = command.replaceAll("👆", "+");
+                    command = command.replaceAll("👇", "-");
+                    command = command.replaceAll("👉", ">");
+                    command = command.replaceAll("👈", "<");
+                    command = command.replaceAll("🌜", "[");
+                    command = command.replaceAll("🌛", "]");
+
+                    ANTLRInputStream input = new ANTLRInputStream(command);
                     BrainfuqLexer lexer = new BrainfuqLexer(input);
                     CommonTokenStream tokens = new CommonTokenStream(lexer);
                     BrainfuqParser parser = new BrainfuqParser(tokens);
@@ -137,8 +150,18 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                 
         } else {
             try {
-            final FileInputStream inStream = new FileInputStream(args[0]);
-            final ANTLRInputStream input = new ANTLRInputStream(inStream);
+            FileInputStream inStream = new FileInputStream(args[0]);
+            String code = IOUtils.toString(inStream, Charset.defaultCharset());
+            code = code.replaceAll("🌝", ",");
+            code = code.replaceAll("🌚", ".");
+            code = code.replaceAll("👆", "+");
+            code = code.replaceAll("👇", "-");
+            code = code.replaceAll("👉", ">");
+            code = code.replaceAll("👈", "<");
+            code = code.replaceAll("🌜", "[");
+            code = code.replaceAll("🌛", "]");
+
+            final ANTLRInputStream input = new ANTLRInputStream(code);
             BrainfuqLexer lexer = new BrainfuqLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             BrainfuqParser parser = new BrainfuqParser(tokens);
