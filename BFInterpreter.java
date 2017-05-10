@@ -24,6 +24,7 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 
+    Boolean isMoving = false;
 
     private int LENGTH = 65443;
     byte[] tape = new byte[LENGTH];
@@ -59,7 +60,11 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                 tape[dataPointer] = (byte) sc.next().charAt(0);
                 break;
             case BrainfuqLexer.OUTPUT:
-                System.out.print(ANSI_GREEN + (char) tape[dataPointer] + ANSI_RESET);
+                if (isMoving) {
+                    System.out.print((char) tape[dataPointer]);
+                } else {
+                    System.out.print(ANSI_GREEN + (char) tape[dataPointer] + ANSI_RESET);
+                }
                 break;
             case BrainfuqLexer.INC:
                 tape[dataPointer]++;
@@ -177,6 +182,11 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
         } else {
             try {
             FileInputStream inStream = new FileInputStream(args[0]);
+
+            //Temporary fix for Hanoi Tower moving program
+            if (args[0].equals("Hanoi.bf")) {
+                bfInt.isMoving = true;
+            }
             String code = IOUtils.toString(inStream, Charset.defaultCharset());
             code = code.replaceAll("🌝", ",");
             code = code.replaceAll("🌚", ".");
