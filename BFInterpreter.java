@@ -17,6 +17,13 @@ import org.apache.commons.io.IOUtils;
 public class BFInterpreter extends BrainfuqBaseVisitor {
 
     //private static Logger logger = Logger.getLogger(BFInterpreter.class.getName());
+    
+     //ANSI COLOURS
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
+
 
     private int LENGTH = 65443;
     byte[] tape = new byte[LENGTH];
@@ -52,7 +59,7 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                 tape[dataPointer] = (byte) sc.next().charAt(0);
                 break;
             case BrainfuqLexer.OUTPUT:
-                System.out.print((char) tape[dataPointer]);
+                System.out.print(ANSI_GREEN + (char) tape[dataPointer] + ANSI_RESET);
                 break;
             case BrainfuqLexer.INC:
                 tape[dataPointer]++;
@@ -88,18 +95,24 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
 
 
     public static void main(String[] args) throws IOException {
+        
         BFInterpreter bfInt = new BFInterpreter();
+
+        final String BRAINFUCK = "Brain" + ANSI_RED + "fuck" + ANSI_RESET;
+        final String HELPCODE = ANSI_CYAN_BACKGROUND + ":help" + ANSI_RESET;
+        final String BFHEADER = ANSI_RED + "BF" + ANSI_RESET;
+
 
         if (args[0].equals("-i")) {
 
             //Stack<String> commandStack = new Stack<String>();
     
             Scanner commands = new Scanner(System.in);
-            System.out.print("\n    Welcome to Brainfuck REPL(an interactive programming environment) :)\n");
-            System.out.print("    Brainfuck is trivial yet very difficult to write.\n    If you want to get a hint of the grammar, just type in :help\n\n");   
+            System.out.print("\n    Welcome to " + BRAINFUCK + " REPL(an interactive programming environment) :)\n");
+            System.out.print("    " + BRAINFUCK + " is trivial yet very difficult to write.\n    If you want to get a hint of the grammar, just type in " + HELPCODE + "\n\n");   
 
             while (true) {
-                System.out.print("BF ⚡️  ");
+                System.out.print(BFHEADER + " ⚡️  ");
                 String command = commands.next();
                 
                 //TODO: Implement a Command Stack and detect arrow keys to select through previous commands
@@ -111,6 +124,7 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                 System.out.print("\n    ");
 
                 if (command.equals(":help") || command.equals(":h")) {
+
                     System.out.print("> : Move data pointer one cell to the right\n" +
                                      "    < : Move data pointer one cell to the left\n" +
                                      "    + : Increment the value at the data pointer\n" +
@@ -119,6 +133,18 @@ public class BFInterpreter extends BrainfuqBaseVisitor {
                                      "    , : Accept a byte of input and store it as the value at the pointer\n" +
                                      "    [ : Jump to the matching ] unless the value at the pointer is 0\n" +
                                      "    ] : Jump backwards to the matching [ unless the value at the data pointer is not 0\n\n");
+
+                } else if (command.equals(":emoji") || command.equals(":e")) {
+
+                    System.out.print("👉  : Move data pointer one cell to the right\n" +
+                                     "    👈  : Move data pointer one cell to the left\n" +
+                                     "    👆  : Increment the value at the data pointer\n" +
+                                     "    👇  : Decrement the value at the data pointer\n" +
+                                     "    🌚  : Print out the value at the data pointer (as ASCII)\n" +
+                                     "    🌝  : Accept a byte of input and store it as the value at the pointer\n" +
+                                     "    🌜  : Jump to the matching 🌛  unless the value at the pointer is 0\n" +
+                                     "    🌛  : Jump backwards to the matching 🌜  unless the value at the data pointer is not 0\n\n");
+        
                 } else if (command.equals(":quit") || command.equals(":q")) {
                     System.out.print("It's been fun playing with you! See you next time!\n\n");
                     return;
