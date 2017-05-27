@@ -1,8 +1,6 @@
 # Implementing Brainfuck with ANTLR 4
 
-> 鲍一心 3014216002 **|** 康钦珑 3615000030 **|** 王布雷 3014216020
->
-> > **Brainfuq**, an interpreter for the language **Brainfuck** built with ANTLR
+> **Brainfuq**, an interpreter for the language **Brainfuck** built with ANTLR
 
 
 
